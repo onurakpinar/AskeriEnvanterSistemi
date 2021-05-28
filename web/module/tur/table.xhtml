@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="turlar-table">
+        <h:dataTable styleClass="table table-striped" value="#{turController.tlist}" var="tur">
+            <h:column rendered="#{sessionScope.valid_user.admin}">
+                <f:facet name="header"> ID</f:facet>
+                <h:commandLink action="#{turController.guncelleForm(tur)}" value="#{tur.tur_id}">
+                    <f:ajax execute="@this" render="turlar-form turlar-table"/>
+                </h:commandLink>  
+            </h:column>
+            <h:column>
+                <f:facet name="header">TUR</f:facet>
+                    #{tur.silahlar.turr}
+            </h:column>
+            <h:column>
+                <f:facet name="header">SILAH ADI </f:facet>
+                    #{tur.silahlar.silah_isim}
+            </h:column>
+            <h:column rendered="#{sessionScope.valid_user.admin}">
+                <f:facet name="header"></f:facet>
+                <h:commandButton onclick="$('.modal').modal('show')" styleClass="btn btn-sm btn-danger" action="#{turController.silBilgi(tur)}"  value="DELETE">
+                    <f:ajax execute="@this" render="delete-modal" />
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</ui:composition>

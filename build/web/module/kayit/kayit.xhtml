@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Kayıt Ol</title>
+        <link rel="stylesheet" href="../../ekdosya/resources/css/bootstrap.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/resources/js/bootstrap.js"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/font-awesome.min.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/themify-icons.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/metisMenu.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/owl.carousel.min.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/slicknav.min.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/typography.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/default-css.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/styles.css"></link>
+        <link rel="stylesheet" href="../../ekdosya/assets/css/responsive.css"></link> 
+        <script src="ekdosya/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link href="ekdosya/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link> 
+        <link href="ekdosya/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"></link> 
+        <link href="ekdosya/lib/animate/animate.min.css" rel="stylesheet"></link> 
+        <link href="ekdosya/lib/ionicons/css/ionicons.min.css" rel="stylesheet"></link> 
+        <link href="ekdosya/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"></link> 
+        <link href="ekdosya/lib/magnific-popup/magnific-popup.css" rel="stylesheet"></link> 
+        <link href="ekdosya/lib/ionicons/css/ionicons.min.css" rel="stylesheet"></link> 
+        <link href="ekdosya/css/style.css" rel="stylesheet"></link> 
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body style="background-image: url('ekdosya/resources/file/arkaplan.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">              
+
+                            <h:form id="üyelar-form">
+                             
+                                <h:inputHidden value="#{uyeController.uye.uye_id}"/>
+                                
+                                <label  for="input"  style="color:red; font-size:25px"> </label>
+                                <h:inputText styleClass="form-control" value = "#{uyeController.uye.adı}"  a:placeholder="Üye Adı" validator="#{validator.validateAdi}"/>                                                
+
+                                <label for="input"  style="color:red; font-size:25px"> </label>
+                                <h:inputText styleClass="form-control" value = "#{uyeController.uye.soyadı}"  a:placeholder="Üye Soyadı" validator="#{validator.validateSoyadi}" />
+                             
+ 
+                                <label for="input"  style="color:red; font-size:25px"> </label>
+                                <h:inputText styleClass="form-control" value = "#{uyeController.uye.email}"  a:placeholder="E-mail Adresi" validator="#{validator.validateEmaili}"/>
+
+                                <label for="input"  style="color:red; font-size:25px"> </label>
+                                <h:inputSecret styleClass="form-control" value = "#{uyeController.uye.sifre}"  a:placeholder="Şifre" validator="#{validator.validateSifresi}"/>
+<br/>     
+                                <div class = "form-group" style="margin-top:8px;">
+                                    <h:commandButton rendered="#{uyeController.uye.uye_id == null}" styleClass="btn btn-outline-danger" value="Kayıt Ol" action="#{uyeController.create()}">                       
+                                        <f:ajax execute="üyelar-form" render="üyelar-form üyelar-table"/>
+                                    </h:commandButton>
+                                </div>
+                                    <h:messages styleClass="alert alert-danger alert" />
+                            </h:form>
+                        </div>
+                    
+                </div>
+
+            </div>
+        
+
+    </h:body>
+</html>
+

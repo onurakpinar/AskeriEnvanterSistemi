@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:form id="sinemamenlar-form" rendered="#{sessionScope.valid_user.admin}">
+        <div class="form-group">
+            <h:inputHidden value="#{sinemaSalonuController.sinemaSalonu.sinemasalonu_id}"/>
+            <label for="inputName">SALON ADI</label>
+            <h:inputText styleClass="form-control" value="#{sinemaSalonuController.sinemaSalonu.salon_adı}"/><br/>
+        </div>
+        <div class="form-group">
+            <label for="inputName">ŞEHİR</label>
+            <h:inputText styleClass="form-control" value="#{sinemaSalonuController.sinemaSalonu.şehir}"/><br/>
+        </div>                            
+        <div class="form-group">
+            <div class="btn-group">
+                <h:commandButton rendered="#{sinemaSalonuController.sinemaSalonu.sinemasalonu_id != null}" styleClass="btn btn-info" value="Guncelle " action="#{sinemaSalonuController.guncelle}">
+                    <f:ajax execute="sinemamenlar-form" render="sinemamenlar-form sinemamenlar-table"/>
+                </h:commandButton>
+                <h:commandButton rendered="#{sinemaSalonuController.sinemaSalonu.sinemasalonu_id == null}" styleClass="btn btn-primary" value="CREATE " action="#{sinemaSalonuController.create}">
+                    <f:ajax execute="sinemamenlar-form" render="sinemamenlar-form sinemamenlar-table"/>
+                </h:commandButton>
+                <h:commandButton rendered="#{sinemaSalonuController.sinemaSalonu.sinemasalonu_id != null}" styleClass="btn btn-secondary" value="Clear Form " action="#{sinemaSalonuController.clearForm}">
+                    <f:ajax execute="@this" render="sinemamenlar-form sinemamenlar-table"/>
+                </h:commandButton>
+            </div>
+        </div>
+    </h:form>      
+
+
+</ui:composition>

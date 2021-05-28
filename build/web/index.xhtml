@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Askeri Envanter</title>
+
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body>
+        <section>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h:form>
+                            <h:messages styleClass="alert alert-danger alert" />
+                            <div id="logo" class="pull-left" style="margin-top: 20px; margin-right: 10px;">
+                                <h1><a href="#body" class="scrollto">ASKERI ENVANTER</a></h1>
+                            </div>
+
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <div class="collapse navbar-collapse" id="navbarNav">
+
+                                    <div class="col-md-4">
+                                        <p>E-mail <h:inputText styleClass="form-control" value="#{loginController.uye.email}"/> </p> 
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p>Şifre <h:inputSecret styleClass="form-control"  value="#{loginController.uye.sifre}"/> </p>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <h:commandButton  styleClass="btn btn-primary" action="#{loginController.login()}" value="Giriş"/>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <h:commandButton  styleClass="btn btn-dark" action="module/kayit/kayit.xhtml" value="Kayıt Ol"/>
+                                    </div> 
+
+                                </div>
+                            </nav>
+
+                        </h:form>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="intro">      
+            <div class="bd-example">
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                       
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h:graphicImage value="ekdosya/assets/images/arayuz/arka.jpg" height="502" width="502" class="d-block w-100" alt="..."/>
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </section>  
+        <!-- jquery latest version -->
+        <script src="ekdosya/assets/js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="ekdosya/assets/js/popper.min.js"></script>
+        <script src="ekdosya/assets/js/bootstrap.min.js"></script>
+        <script src="ekdosya./assets/js/owl.carousel.min.js"></script>
+        <script src="ekdosya/assets/js/metisMenu.min.js"></script>
+        <script src="ekdosya/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="ekdosya/assets/js/jquery.slicknav.min.js"></script>  
+        <script src="ekdosya/assets/js/plugins.js"></script>
+        <script src="ekdosya/assets/js/scripts.js"></script>
+
+    </h:body>
+</html>
+

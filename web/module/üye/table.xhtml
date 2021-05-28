@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:form id="üyelar-table" rendered="#{sessionScope.valid_user.admin}" >
+        <h:dataTable styleClass="table table-striped" value="#{uyeController.ulist}" var="üye">
+            <h:column>
+                <f:facet name="header">ÜYE ID</f:facet>
+                <h:commandLink action="#{uyeController.guncelleForm(üye)}" value="#{uye.uye_id}">
+                    <f:ajax execute="@this" render="üyelar-form üyelar-table"/>
+                </h:commandLink> 
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">ÜYE ADI</f:facet>
+                    #{uye.adı}
+            </h:column>
+            <h:column>
+                <f:facet name="header">SOYAD</f:facet>
+                    #{uye.soyadı}
+            </h:column>
+            <h:column>
+                <f:facet name="header">EMAİL</f:facet>
+                    #{uye.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">SİL</f:facet>
+                <h:commandButton onclick="$('.modal').modal('show')" styleClass="btn btn-sm btn-danger" action="#{uyeController.silBilgi(uye)}"  value="DELETE">
+                    <f:ajax execute="@this" render="delete-modal" />
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</ui:composition>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="musterilar-form" >
+        <div class="form-group">
+            <h:inputHidden value="#{musteriController.musteri.musteri_id}"/>
+            <label for="inputName">Musteri ADI</label>
+            <h:inputText styleClass="form-control" value="#{musteriController.musteri.musteri_isim}"/><br/>
+        </div>
+        <div class="form-group">
+            <label for="inputName">Musteri Ulke</label>
+            <h:inputText styleClass="form-control" value="#{musteriController.musteri.musteri_ulke}"/><br/>
+        </div>   
+
+        <div class="form-group">
+            <label for="inputName">Silah Adi</label>
+            <h:selectOneMenu  styleClass="custom-select" id="silah" value="#{musteriController.musteri.silahlar}" converter="silahlarConverter" >
+                <f:selectItems value="#{musteriController.silahlarList}" var="silah" itemValue="#{silah}" itemLabel="#{silah.silah_isim}"/>
+            </h:selectOneMenu>                            
+        </div> 
+        <div class="form-group">
+            <label for="inputName">ADET</label>
+            <h:inputText styleClass="form-control" value="#{musteriController.musteri.adet}"/><br/>
+        </div> 
+        <div class="form-group">
+            <div class="btn-group">
+                <h:commandButton rendered="#{musteriController.musteri.musteri_id != null}" styleClass="btn btn-info" value="Guncelle " action="#{musteriController.guncelle}">
+                    <f:ajax execute="musterilar-form" render="musterilar-form musterilar-table"/>
+                </h:commandButton>
+                <h:commandButton rendered="#{musteriController.musteri.musteri_id == null}" styleClass="btn btn-primary" value="Sipariş " action="#{musteriController.create}">
+                    <f:ajax execute="musterilar-form" render="musterilar-form musterilar-table"/>
+                </h:commandButton>
+                <h:commandButton rendered="#{musteriController.musteri.musteri_id != null}" styleClass="btn btn-secondary" value="Clear Form " action="#{musteriController.clearForm}">
+                    <f:ajax execute="@this" render="musterilar-form musterilar-table"/>
+                </h:commandButton>
+            </div>
+        </div>
+    </h:form>
+
+
+</ui:composition>
